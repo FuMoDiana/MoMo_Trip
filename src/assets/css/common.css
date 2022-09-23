@@ -1,4 +1,7 @@
+:root {
+    --primary-color: rgb(255, 150, 69);
+}
+
 body {
     font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
 }
