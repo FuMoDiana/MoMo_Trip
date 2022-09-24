@@ -1,6 +1,5 @@
 <template>
     <div class="app">
-      App vue
       <router-view></router-view>
       <tab-bar></tab-bar>
     </div>

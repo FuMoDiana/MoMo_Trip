@@ -22,7 +22,7 @@ const tabbarData = [{
     {
         text: '我的',
         image: 'tabbar/tab_message.png',
-        imageActive: 'tabbar/tab_message_active.png',
+        imageActive: 'tabbar/tab_message.png',
         path: '/message'
 
     },
