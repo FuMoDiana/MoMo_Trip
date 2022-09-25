@@ -2,7 +2,7 @@
     <div class="app">
       <router-view></router-view>
       <!-- 也可以选择css遮盖住tabbar -->
-      <tab-bar></tab-bar>
+      <tab-bar v-if="!route.meta.hideTabBar"></tab-bar>
     </div>
 </template>
 
