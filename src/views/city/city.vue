@@ -19,11 +19,9 @@
       </div>
   </div>
   <div class="content">
-    <template v-for="(group,index) in currentGroup?.cities" :key="index">
-      <h2>标题：{{group.group}}</h2>
-      <template v-for="(city,indey) in group.cities" :key="indey">
-        <li>{{city.cityName}}</li>
-      </template>
+    <!-- 优化出现速度，v-show控制展示，一开始就准备好两个dom -->
+    <template v-for="(value,key,index) in allCities" :key="key">
+      <city-list v-show="tabActive === key" :groupData = "currentGroup"/>
     </template>
   </div>
 </div>
@@ -34,6 +32,8 @@ import {ref, computed} from 'vue'
 import {useRouter} from 'vue-router'
 import useCityStore from '@/stores/modules/city'
 import {storeToRefs} from 'pinia'
+import CityList from './cpns/city-list.vue'
+
 const router = useRouter()
 //搜索框功能
 const searchValue = ref("") 
