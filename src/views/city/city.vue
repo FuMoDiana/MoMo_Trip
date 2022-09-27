@@ -19,7 +19,12 @@
       </div>
   </div>
   <div class="content">
-    {{currentGroup?.cities}} 
+    <template v-for="(group,index) in currentGroup?.cities" :key="index">
+      <h2>标题：{{group.group}}</h2>
+      <template v-for="(city,indey) in group.cities" :key="indey">
+        <li>{{city.cityName}}</li>
+      </template>
+    </template>
   </div>
 </div>
 </template>
@@ -54,7 +59,7 @@ const tabActive = ref(0);
 const  cityStore = useCityStore()
 cityStore.fetchAllCitiesAction()
 const {allCities} = storeToRefs(cityStore)
-
+console.log(allCities.value)
 // console.log(allCities[tabActive])
 //获取标签对应数据
 //ref数据在js中要.value，在模板中不用
