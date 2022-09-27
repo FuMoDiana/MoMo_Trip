@@ -41,7 +41,9 @@
       </div>
       <div class="hotSuggests">
         <template v-for="(item,index) in hotSuggests" :key="index">
-          <div class="item">
+          <div 
+          class="item" 
+          :style="{color:item.tagText.color,background:item.tagText.background.color}"> 
             {{item.tagText.text}}
           </div>
         </template>
@@ -176,5 +178,17 @@ const {hotSuggests} = storeToRefs(homeStore)
       font-size: 15px;
       color: gray;
     }
-
+    
+    .hotSuggests{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px 0;
+      padding-left: 10px;
+      .item{
+        border-radius: 10px;
+        padding: 4px 3px;
+        margin: 5px;
+        
+      }
+    }
 </style>
