@@ -5,7 +5,7 @@
         <img src="@/assets/img/home/banner.webp" alt="">
       </div>
       <home-search-box />
-      <div class="search-bar" v-if="isShowSearch">搜索框xxxxxx</div>
+      <search-bar v-if="isShowSearch" />
       <home-categories />
       <home-content />
     </div>
@@ -19,6 +19,7 @@ import HomeCategories from './cpns/home-categories.vue';
 import HomeContent from './cpns/home-content.vue';
 import useHomeStore from '@/stores/modules/home';
 import useScroll from '@/hooks/useScroll';
+import SearchBar from './cpns/search-bar.vue'
 //网络请求
 const homeStore = useHomeStore()
 homeStore.fetchHotSuggestsData(); 
@@ -94,5 +95,7 @@ const isShowSearch = computed(()=>{
           width: 100%;
         }
       }
+
+      
   }
 </style>

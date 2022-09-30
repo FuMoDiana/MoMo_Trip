@@ -70,6 +70,7 @@ import {storeToRefs} from 'pinia';
 import {useRouter} from 'vue-router';
 import useCityStore from '@/stores/modules/city';
 import useHomeStore from '@/stores/modules/home';
+import useMainStore from '@/stores/modules/main';
 import {formatDate,diffDate} from '@/utils/formatDate';
 //位置/城市
 
@@ -91,14 +92,16 @@ const positionClick = ()=>{
 
 //日期格式，范围
 //日期范围处理
-const nowDate = new Date();
-const nextDate = new Date();
-nextDate.setDate(nowDate.getDate()+1);
+// const nowDate = new Date();
+// const nextDate = new Date();
+// nextDate.setDate(nowDate.getDate()+1);
+const mainStore = useMainStore();
+const {nowDate,nextDate} = storeToRefs(mainStore)
 
-const startTime = ref(formatDate(nowDate));
-const endTime = ref(formatDate(nextDate))
-//日期计算
-const stayCount = ref(diffDate(nextDate,nowDate))
+const startTime = ref(formatDate(nowDate.value));
+const endTime = ref(formatDate(nextDate.value))
+//日期计算 
+const stayCount = ref(diffDate(nextDate.value,nowDate.value))
 
 //日历弹出
 const showClander = ref(false)
@@ -106,6 +109,8 @@ const showClander = ref(false)
 const onConfirm = (dates)=>{
   const selectStart = dates[0]
   const selectEnd = dates[1]
+  nowDate.value = selectStart
+  nextDate.value = selectEnd
    startTime.value = formatDate(selectStart);
    endTime.value = formatDate(selectEnd);
    stayCount.value = diffDate(selectEnd,selectStart)
