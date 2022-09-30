@@ -39,15 +39,7 @@
       <div class="message border-bottom">
           <div class="info">关键字/位置/民宿名</div>
       </div>
-      <div class="hotSuggests">
-        <template v-for="(item,index) in hotSuggests" :key="index">
-          <div 
-          class="item" 
-          :style="{color:item.tagText.color,background:item.tagText.background.color}"> 
-            {{item.tagText.text}}
-          </div>
-        </template>
-      </div>
+      <home-content></home-content>
 
 
 
@@ -59,8 +51,7 @@ import {storeToRefs} from 'pinia';
 import {useRouter} from 'vue-router';
 import useCityStore from '@/stores/modules/city';
 import {formatDate,diffDate} from '@/utils/formatDate';
-import useHomeStore from '@/stores/modules/home';
-
+import HomeContent from './home-content.vue'
 //位置/城市
 
 const router = useRouter()
@@ -103,12 +94,6 @@ const onConfirm = (dates)=>{
 }
 
 
-
-
-//热门建议
-const homeStore = useHomeStore()
-homeStore.fetchHotSuggestsData();
-const {hotSuggests} = storeToRefs(homeStore)
 
 
 </script>
@@ -179,16 +164,4 @@ const {hotSuggests} = storeToRefs(homeStore)
       color: gray;
     }
     
-    .hotSuggests{
-      display: flex;
-      flex-wrap: wrap;
-      margin: 10px 0;
-      padding-left: 10px;
-      .item{
-        border-radius: 10px;
-        padding: 4px 3px;
-        margin: 5px;
-        
-      }
-    }
 </style>
