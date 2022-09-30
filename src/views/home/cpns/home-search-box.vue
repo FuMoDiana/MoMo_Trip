@@ -37,10 +37,29 @@
         <div class="people">人数不限</div>
       </div>
       <div class="message border-bottom">
-          <div class="info">关键字/位置/民宿名</div>
+          <div class="info">关键字/位置</div>
       </div>
-      <home-content></home-content>
-
+      <!-- 热门建议 -->
+      <div class="hotSuggests">
+        <template v-for="(item,index) in hotSuggests" :key="index">
+          <div 
+            class="item" 
+            :style="{color:item.tagText.color,background:item.tagText.background.color}"
+            @click="keywordBtnClick(item)"
+          > 
+            {{item.tagText.text}}
+          </div>
+        </template>
+      </div>
+      <!-- 开始搜索按钮 -->
+      <van-button 
+        color="linear-gradient(to right, #ff5858, #f05819)"
+        size="large"
+        round="true"
+        @click="searchBtnClick"
+      >
+        开始搜索
+      </van-button>
 
 
 </template>
@@ -50,8 +69,8 @@ import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useRouter} from 'vue-router';
 import useCityStore from '@/stores/modules/city';
+import useHomeStore from '@/stores/modules/home';
 import {formatDate,diffDate} from '@/utils/formatDate';
-import HomeContent from './home-content.vue'
 //位置/城市
 
 const router = useRouter()
@@ -93,6 +112,32 @@ const onConfirm = (dates)=>{
    showClander.value = false;
 }
 
+//热门建议
+const homeStore = useHomeStore()
+const {hotSuggests} = storeToRefs(homeStore)
+
+//跳转到搜索界面
+//搜索按钮跳转
+function searchBtnClick() {
+  router.push({
+    path:'/search',
+    query:{
+      startTime:startTime.value,
+      endTime:endTime.value,
+    }
+  })
+}
+//关键字跳转
+function keywordBtnClick(item) {
+  router.push({
+    path:'/search',
+    query:{
+      startTime:startTime.value,
+      endTime:endTime.value,
+      keyWord:item.tagText.text
+    }
+  })
+}
 
 
 
@@ -103,7 +148,7 @@ const onConfirm = (dates)=>{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 17px;
+        padding: 12px;
 
         .position{
           .text{
@@ -153,15 +198,27 @@ const onConfirm = (dates)=>{
       display: flex;
       color: gray;
       justify-content: space-between;
-      padding:15px;
+      padding:10px;
       font-size: 15px;
     }
 
     .message{
       display: flex;
-      padding: 15px;
+      padding: 10px;
       font-size: 15px;
       color: gray;
     }
     
+    .hotSuggests{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px 0;
+      padding-left: 10px;
+      .item{
+        border-radius: 10px;
+        padding: 4px 3px;
+        margin: 5px;
+        
+      }
+    }
 </style>

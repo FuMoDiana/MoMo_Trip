@@ -1,6 +1,6 @@
 <template>
     <div class="nav-bar">
-        <span class="title">MoMo❤Trip</span>
+        <span class="title">MoMoTrip</span>
     </div>
 </template>
 

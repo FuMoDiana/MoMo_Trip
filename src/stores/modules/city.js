@@ -5,7 +5,7 @@ const useCityStore = defineStore("city", {
     state: () => ({
         allCities: {},
         currentCity: {
-            cityName: "成都"
+            cityName: "广州"
         }
     }),
     actions: {
