@@ -1,6 +1,6 @@
 <template>
     <div class="tab-bar">
-        <van-tabbar v-model="activeIndex" active-color="rgb(255, 150, 69)">
+        <van-tabbar v-model="activeIndex" active-color="rgb(255, 150, 69)" route>
             <template v-for="(item,index) in tabbarData" :key="index">
             <van-tabbar-item  :to="item.path">
                 <span>{{item.text}}</span>
@@ -25,10 +25,24 @@
 <script setup>
 import {getURL} from '@/utils/load_assets.js'
 import tabbarData from '@/assets/data/tabbar.js' 
-import {ref} from 'vue'
+import {ref,watch} from 'vue'
+import {useRoute} from 'vue-router';
 
 const activeIndex =ref(0);
+const route = useRoute();
+//监听路由的改变
 
+watch(route,(newRoute)=>{
+    // console.log(newRoute.path)
+    const index = tabbarData.findIndex(item=> item.path === newRoute.path);
+    if(index === -1) return
+    activeIndex.value = index;
+})
+
+//直接使用路由切换不能改变tabbar的activeIndex,
+// watch(activeIndex,(newValue)=>{
+//     console.log(newValue)
+// })
 
 </script>
 
