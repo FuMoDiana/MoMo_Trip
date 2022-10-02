@@ -8,6 +8,8 @@ const useDetailsStore = defineStore("details", {
         mainPart: {},
         swiperPics: {},
         swiperData: {},
+        dynamicModule: {},
+        facilityShow: []
     }),
     actions: {
         async fetchCityInfos(houseId) {
@@ -15,6 +17,7 @@ const useDetailsStore = defineStore("details", {
             const res = await getCityInfos(houseId)
             this.cityInfos = res.data;
             this.mainPart = res.data.mainPart;
+            this.dynamicModule = this.mainPart.dynamicModule;
             this.swiperPics = res.data.mainPart.topModule.housePicture.housePics;
 
             for (let item of this.swiperPics) {
@@ -24,6 +27,13 @@ const useDetailsStore = defineStore("details", {
                     this.swiperData[item.enumPictureCategory] = valueArray;
                 }
                 valueArray.push(item)
+            }
+            let j = 0;
+            for (let i = 0; i < this.dynamicModule.facilityModule.houseFacility.houseFacilitys.length; i++) {
+                if (i === this.dynamicModule.facilityModule.houseFacility.facilitySort[j]) {
+                    this.facilityShow.push(this.dynamicModule.facilityModule.houseFacility.houseFacilitys[i]);
+                    j++;
+                }
             }
         },
     }

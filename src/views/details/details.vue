@@ -12,6 +12,10 @@
     
     <!-- 轮播图 -->
         <detail-swiper />
+    <!-- 页面短评信息 -->
+        <brief-infos />
+    <!-- 详情 -->
+        <house-facility />
     </div>
     
 </template>
@@ -19,7 +23,9 @@
 <script setup>
 import {useRoute,useRouter} from 'vue-router';
 import useDetailsStore from '@/stores/modules/details';
-import detailSwiper from './cpns/detailSwiper.vue';
+import detailSwiper from './cpns/detail-swiper.vue';
+import briefInfos from './cpns/brief-infos.vue';
+import houseFacility from './cpns/houseFacility.vue';
 
 const route = useRoute()
 const router = useRouter()
