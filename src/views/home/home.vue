@@ -82,7 +82,7 @@ watch(isReachBottom,(newValue)=>{
 //控制显示搜索框,当页面滑动到指定位置的时候显示搜索框,
 //通过usescroll中返回的变量，可以得到实时的滚动位置
 const isShowSearch = computed(()=>{
-    return scrollTop.value>=200;
+    return scrollTop.value>=450;
 })
 
 </script>

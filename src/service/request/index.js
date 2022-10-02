@@ -1,5 +1,9 @@
 import axios from 'axios'
 import { BASE_URL, TIME_OUT } from './config';
+import useMainStore from '@/stores/modules/main';
+
+const mainStore = useMainStore()
+
 class HYRequest {
 
     constructor(baseURL, timeout = 10000) {
@@ -7,6 +11,22 @@ class HYRequest {
         this.instance = axios.create({
             baseURL,
             timeout
+        })
+
+        //请求拦截
+        this.instance.interceptors.request.use((config) => {
+            mainStore.isLoading = true;
+            return config;
+        }, (err) => {
+            return err;
+        })
+
+        //响应拦截
+        this.instance.interceptors.response.use((res) => {
+            mainStore.isLoading = false;
+            return res;
+        }, err => {
+            return err;
         })
     }
 

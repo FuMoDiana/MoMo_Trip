@@ -7,7 +7,8 @@ nextDate.setDate(nowDate.getDate() + 1);
 const useMainStore = defineStore("main", {
     state: () => ({
         nowDate: nowDate,
-        nextDate: nextDate
+        nextDate: nextDate,
+        isLoading: true
     }),
 
 })
