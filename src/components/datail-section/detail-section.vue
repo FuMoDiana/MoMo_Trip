@@ -8,7 +8,7 @@
               <h2>我是默认内容</h2>
           </slot>
       </div>
-      <div class="more">
+      <div class="more" v-if="moreInfos">
           <span class="text">{{moreInfos}}</span>
           <van-icon name="arrow" />
       </div>
@@ -26,7 +26,6 @@ defineProps({
     },
     moreInfos:{
         type:String,
-        default:'查看更多信息'
     }
 })
 </script>
@@ -39,6 +38,7 @@ defineProps({
         .title{
             padding: 5px;
             margin-top: 10px;
+            padding-bottom: 15px;
             margin-left: 5px;
             border-bottom: 2px solid #f3f3f3;
         }

@@ -14,8 +14,16 @@
         <detail-swiper />
     <!-- 页面短评信息 -->
         <brief-infos />
-    <!-- 详情 -->
+    <!-- 房屋设施 -->
         <house-facility />
+    <!-- 房东介绍 -->
+        <house-landlord />
+    <!-- 地图位置 -->
+        <house-position />
+    <!-- 热门评论 -->
+        <house-comments />
+    <!-- 预定须知 -->
+        <house-rules />
     </div>
     
 </template>
@@ -26,6 +34,10 @@ import useDetailsStore from '@/stores/modules/details';
 import detailSwiper from './cpns/detail-swiper.vue';
 import briefInfos from './cpns/brief-infos.vue';
 import houseFacility from './cpns/houseFacility.vue';
+import houseLandlord from './cpns/house-landlord.vue';
+import houseComments from './cpns/house-comments.vue';
+import houseRules from './cpns/house-rules.vue';
+import housePosition from './cpns/house-position.vue';
 
 const route = useRoute()
 const router = useRouter()
@@ -43,5 +55,7 @@ function onClickLeft(){
 </script>
 
 <style lang="less" scoped>
-    
+    .details::-webkit-scrollbar {
+				display: none;
+			}
 </style>
