@@ -6,9 +6,9 @@
             </div>
             <div class="infos">
               <div class="summary">{{itemData.summaryText}}</div>
-              <div class="name">{{itemData.houseName}}</div>
+              <!-- <div class="name">{{itemData.houseName}}</div> -->
               <div class="price">
-                <van-rate :model-value="Number(itemData.commentScore)" readonly allow-half size="16" color="#fff" />  
+                <!-- <van-rate :model-value="Number(itemData.commentScore)" readonly allow-half size="16" color="#fff" />   -->
                 <div class="new">￥{{itemData.finalPrice}}</div>
               </div>
             </div>

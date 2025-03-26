@@ -13,8 +13,8 @@ import detailSection from '@/components/datail-section/detail-section.vue';
 import useDetailsStore from '@/stores/modules/details';
 
 const detailsStore = useDetailsStore();
-const longitude = detailsStore.dynamicModule.positionModule.longitude;
-const latitude = detailsStore.dynamicModule.positionModule.latitude;
+const longitude = detailsStore.dynamicModule?.positionModule?.longitude;
+const latitude = detailsStore.dynamicModule?.positionModule?.latitude;
 
 const mapRef = ref();
 

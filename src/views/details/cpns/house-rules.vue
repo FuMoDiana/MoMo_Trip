@@ -2,7 +2,7 @@
     <div class="rules">
       <detail-section title="预定须知">
           <div class="orderRules">
-            <template v-for="(item,index) in detailsStore.dynamicModule.rulesModule.orderRules">
+            <template v-for="(item,index) in detailsStore.dynamicModule?.rulesModule?.orderRules">
                 <div class="rule" v-if="item.introduction">
                     <div class="name">
                         {{item.title}}

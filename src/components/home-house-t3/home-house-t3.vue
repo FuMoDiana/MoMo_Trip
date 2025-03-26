@@ -26,14 +26,12 @@
 <script setup>
 import { defineProps } from "vue";
 
-
-defineProps({
-    itemData:{
-        type:Object,
-        default:{}
+const props = defineProps({
+    itemData: {
+        type: Object,
+        default: () => ({})
     }
 })
-
 </script>
 
 <style lang="less" scoped>

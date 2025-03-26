@@ -40,7 +40,7 @@ function strFormat(str){
 //查找当前轮播图片对应的类别以及所在类别中的索引
 function arrayIndex(item){
     let valueArray = detailsStore.swiperData[item.enumPictureCategory];
-    return valueArray.findIndex(data => data === item)+1;
+    return valueArray.findIndex(data => data.url === item.url) + 1;
 }
 </script>
 

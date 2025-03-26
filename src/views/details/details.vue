@@ -30,6 +30,7 @@
 
 <script setup>
 import {useRoute,useRouter} from 'vue-router';
+import { onMounted } from 'vue';
 import useDetailsStore from '@/stores/modules/details';
 import detailSwiper from './cpns/detail-swiper.vue';
 import briefInfos from './cpns/brief-infos.vue';
@@ -45,8 +46,9 @@ const detailsStore = useDetailsStore();
 const houseId = route.params.id;
 
 //网络请求
-detailsStore.fetchCityInfos(houseId)
-
+onMounted(() => {
+    detailsStore.fetchCityInfos(houseId)
+})
 
 function onClickLeft(){
     router.push('/home')

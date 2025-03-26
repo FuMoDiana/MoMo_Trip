@@ -3,18 +3,18 @@
       <detail-section title="房东介绍" moreInfos="查看房东主页">
           <div class="contentInfos">
             <div class="titlePic">
-                <img :src="detailsStore.dynamicModule.landlordModule.topScroll" alt="">
+                <img :src="detailsStore.dynamicModule?.landlordModule?.topScroll" alt="">
             </div>
             <div class="landlordName">
                 <div class="namePic">
-                    <img :src="detailsStore.dynamicModule.landlordModule.hotelLogo" alt="">
+                    <img :src="detailsStore.dynamicModule?.landlordModule?.hotelLogo" alt="">
                 </div>
                 <div class="landlordText">
-                    <span class="hotelName">{{detailsStore.dynamicModule.landlordModule.hotelName}}</span>
+                    <span class="hotelName">{{detailsStore.dynamicModule?.landlordModule?.hotelName}}</span>
                     <div class="tags">
-                        <template v-for="(item,index) in detailsStore.dynamicModule.landlordModule.hotelTags">
+                        <template v-for="(item,index) in detailsStore.dynamicModule?.landlordModule?.hotelTags">
                             <span class="tag" 
-                                :class="{borderLeft:index !== detailsStore.dynamicModule.landlordModule.hotelTags.length-1}" 
+                                :class="{borderLeft:index !== detailsStore.dynamicModule?.landlordModule?.hotelTags?.length-1}" 
                                 :style="{color:item.tagText.color}"
                             >
                                 {{item.tagText.text}}
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="summarys">
-                <template v-for="(item,index) in detailsStore.dynamicModule.landlordModule.hotelSummary" :key="index">
+                <template v-for="(item,index) in detailsStore.dynamicModule?.landlordModule?.hotelSummary" :key="index">
                     <div class="summary">
                         <div class="summaryName">{{item.title}}</div>
                         <div class="percent">{{item.introduction}}</div>

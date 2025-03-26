@@ -2,11 +2,11 @@
     <div class="briefInfos">
       <div class="houseInfo">
           <h2>
-          {{detailsStore.mainPart.topModule.houseName}}         
+          {{detailsStore.mainPart?.houseName}}         
           </h2>
       </div>
       <div class="tags">
-          <template v-for="tag in detailsStore.mainPart.topModule.houseTags" :key="tag.tagCode"> 
+          <template v-for="tag in detailsStore.mainPart?.houseTags" :key="tag.tagCode"> 
               <span 
                 class="item" 
                 v-if="tag.tagText"
@@ -18,17 +18,17 @@
       </div>
       <div class="comment section">
           <div class="left">
-              <span class="score">{{detailsStore.mainPart.topModule.commentBrief.overall}}</span>
-              <span class="title">{{detailsStore.mainPart.topModule.commentBrief.scoreTitle}}</span>
-              <span class="brief">"{{detailsStore.mainPart.topModule.commentBrief.commentBrief}}"</span>
+              <span class="score">{{detailsStore.mainPart?.topModule?.commentBrief?.overall}}</span>
+              <span class="title">{{detailsStore.mainPart?.topModule?.commentBrief?.scoreTitle}}</span>
+              <span class="brief">{{detailsStore.mainPart?.topModule?.commentBrief?.commentBrief}}</span>
           </div>
           <div class="right">
-              <span class="count">{{detailsStore.mainPart.topModule.commentBrief.totalCount}}条评论</span>
+              <span class="count">{{detailsStore.mainPart?.topModule?.commentBrief?.totalCount}}条评论</span>
               <van-icon name="arrow" />
           </div>
       </div>
       <div class="position section">
-          <span class="address">{{detailsStore.mainPart.topModule.nearByPosition.address}}</span>
+          <span class="address">{{detailsStore.mainPart?.topModule?.nearByPosition?.address}}</span>
           <div class="right">
               <span>地图-周边</span>
               <van-icon name="arrow" />

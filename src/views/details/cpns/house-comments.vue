@@ -4,16 +4,16 @@
           <div class="scores">
               <div class="score">
                   <div class="scoreText">
-                    {{detailsStore.dynamicModule.commentModule.overall}}
+                    {{detailsStore.dynamicModule?.commentModule?.overall}}
                   </div>
               </div>
               <div class="scoreSummary">
-                  <div class="title">{{detailsStore.dynamicModule.commentModule.scoreTitle}}</div>
-                  <div class="count">{{detailsStore.dynamicModule.commentModule.totalCount}}条评论</div>
+                  <div class="title">{{detailsStore.dynamicModule?.commentModule?.scoreTitle}}</div>
+                  <div class="count">{{detailsStore.dynamicModule?.commentModule?.totalCount}}条评论</div>
                   <van-rate :model-value="score" size="12px" color="rgb(244,153,48)" readonly allow-half />
               </div>
               <div class="scoreTags">
-                  <template v-for="(item,index) in detailsStore.dynamicModule.commentModule.subScores" :key="index">
+                  <template v-for="(item,index) in detailsStore.dynamicModule?.commentModule?.subScores" :key="index">
                       <span class="tagText">
                           {{item}}
                       </span>
@@ -21,7 +21,7 @@
               </div>
           </div>
           <div class="commentTags">
-              <template v-for="(item,index) in detailsStore.dynamicModule.commentModule.commentTagVo">
+              <template v-for="(item,index) in detailsStore.dynamicModule?.commentModule?.commentTagVo">
                   <div class="commentTag" :style="{color:item.color,background:item.backgroundColor}">
                       {{item.text}}
                   </div>
@@ -30,15 +30,15 @@
           <div class="commentInfo">
               <div class="user">
                   <div class="headPic">
-                      <img :src="detailsStore.dynamicModule.commentModule.comment.userAvatars" alt="">
+                      <img :src="detailsStore.dynamicModule?.commentModule?.comment?.userAvatars" alt="">
                   </div>
                   <div class="nameTime">
-                      <div class="username">{{detailsStore.dynamicModule.commentModule.comment.userName}}</div>
-                      <div class="date">{{detailsStore.dynamicModule.commentModule.comment.checkInDate}}</div>
+                      <div class="username">{{detailsStore.dynamicModule?.commentModule?.comment?.userName}}</div>
+                      <div class="date">{{detailsStore.dynamicModule?.commentModule?.comment?.checkInDate}}</div>
                   </div>
               </div>
               <div class="commentText">
-                  {{detailsStore.dynamicModule.commentModule.comment.commentDetail}}
+                  {{detailsStore.dynamicModule?.commentModule?.comment?.commentDetail}}
               </div>
           </div>
       </detail-section>
@@ -50,8 +50,8 @@ import detailSection from '@/components/datail-section/detail-section.vue';
 import useDetailsStore from '@/stores/modules/details';
 
 const detailsStore = useDetailsStore();
-const moreText = `查看全部${detailsStore.dynamicModule.commentModule.totalCount}条评论`
-const score = detailsStore.dynamicModule.commentModule.overall;
+const moreText = `查看全部${detailsStore.dynamicModule?.commentModule?.totalCount}条评论`
+const score = detailsStore.dynamicModule?.commentModule?.overall;
 
 </script>
 
