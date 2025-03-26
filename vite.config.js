@@ -6,6 +6,7 @@ import { VantResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: '/MoMo_Trip/', // 在这里设置仓库名称
     plugins: [vue(),
         Components({
             resolvers: [VantResolver()],

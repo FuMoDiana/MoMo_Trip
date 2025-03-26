@@ -1,10 +1,12 @@
 {
     "name": "vue-project",
     "version": "0.0.0",
+    "homepage": "https://FuMoDiana.github.io/MoMo_Trip",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview --port 4173"
+        "preview": "vite preview --port 4173",
+        "deploy": "npm run build && gh-pages -d dist"
     },
     "dependencies": {
         "axios": "^0.27.2",
@@ -18,6 +20,7 @@
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^3.0.3",
+        "gh-pages": "^6.3.0",
         "less": "^4.1.3",
         "unplugin-vue-components": "^0.22.7",
         "vite": "^3.0.9"
