@@ -1,0 +1,1 @@
+import{a9 as e,aa as s,ab as a,ae as t}from"./index.12ac97ab.js";const c={},o={class:"message"},n=t("h2",null,"messahe",-1),_=[n];function r(d,i){return s(),a("div",o,_)}const m=e(c,[["render",r]]);export{m as default};
