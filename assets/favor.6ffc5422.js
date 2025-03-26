@@ -1,1 +1,0 @@
-import{a9 as e,aa as a,ab as o,ae as s}from"./index.12ac97ab.js";const t={},c={class:"favor"},r=s("h2",null,"favor",-1),n=[r];function _(f,d){return a(),o("div",c,n)}const l=e(t,[["render",_]]);export{l as default};
