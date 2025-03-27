@@ -1,1 +1,0 @@
-import{af as i}from"./index.40b87844.js";import{H as e}from"./index.400491d8.js";function a(){return e.get({url:"/city/all"})}const s=i("city",{state:()=>({allCities:{},currentCity:{cityName:"\u5E7F\u5DDE"}}),actions:{async fetchAllCitiesAction(){const t=await a();this.allCities=t.data},changeCurrentCityAction(t){this.currentCity.cityName=t.cityName}}});export{s as u};
